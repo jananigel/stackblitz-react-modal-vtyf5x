@@ -1,0 +1,55 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+
+  &.show {
+    opacity: 1;
+    pointer-events: visible;
+
+    .modalContent {
+      // animation: jumpIn .3s forwards;
+      transform: translateY(0px);
+    }
+  }
+}
+
+.modalContent {
+  width: 500px;
+  background-color: #fff;
+
+  transform: translateY(400px);
+  transition: all 0.3s ease-in-out;
+}
+
+.modalHeader, .modalFooter {
+  padding: 10px;
+}
+
+.modalBody {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+@keyframes jumpIn {
+  0% {
+    transform: translateY(400px);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
